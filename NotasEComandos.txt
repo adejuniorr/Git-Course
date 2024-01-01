@@ -1,0 +1,70 @@
+Alguns comandos cmd/Git
+
+-- Básicos do Cmd --
+
+> ir para um diretório
+cd
+
+> apresentar arquivos do diretório atual:
+dir
+
+-- Configurações Git Iniciais --
+
+git config --system | --global | --local
+            sistema |   user   | projeto
+
+> infos de usuário:
+git config --global user.name | user.email
+
+> editor principal do git (aqui setando o vscode):
+git config --global core.editor "code --wait" 
+
+[!] O uso do editor serve para mais configurações referentes aos repositórios e commits realizados
+
+> lista de infos:
+git config --list
+
+
+-- Para Repositórios --
+
+> inicializa repositório git no diretório atual:
+git init
+
+[!] Após criar novos arquivos no diretório/repositório em questão, estes arquivos passarão pelos estados de:
+
+1. Untracked (não listado), onde determinado arquivo ainda não foi adicionado ao repositório propriamente dito
+2. Unmodified (não modificado), onde o arquivo ainda não sofreu qualquer alteração desde a última vez em que foi aberto
+3. Modified, onde o arquivo foi alterado
+4. Staged, que é o estado final para versionamento do arquivo após ser modificado (após o commit, o arquivo é finalmente versionado)
+
+> para verificar o status do repositório:
+git status
+
+> para adicionar arquivos do diretório ao repositório:
+git add "nomedoarquivo.arq"
+
+[!] Após modificar um arquivo do repositório, ele passará ao estado 3. Então, para levá-lo(s) ao estado 4 onde poderemos realizar o commit e salvar a versão atual, novamente fazemos o "git add" daquele mesmo arquivo e, por fim:
+git commit -m "Mensagem/Comentário sobre o commit" (modified)
+git coommit -am "Mensagem/Comentário sobre o commit" (all modified)
+
+> histórico de alterações (apresentado em pilha):
+git log | shortlog | log -sn | log --graph | show
+
+> revisão de alterações
+git diff
+
+> arquivores modificados
+git diff --name-only
+
+> desfazer alterações em arquivos modificados
+git checkout "nomedoarquivo.arq"
+
+> desfazer alterações em arquivos Staged
+git reset HEAD "nomedoarquivo.arq"
+
+> desfazer commit
+git reset ...
+	   --soft : desfaz o commit e retorna o arquivo para staged, pronto para ser commitado novamente
+	   --mixed : desfaz o commit e retorna o arquivo para modified
+	   --hard : desfaz totalmente o commit
+[!] Para desfazer o commit, é necessária a hash do commit anterior ao que deseja-se remover
