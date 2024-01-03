@@ -68,3 +68,25 @@ git reset ...
 	   --mixed : desfaz o commit e retorna o arquivo para modified
 	   --hard : desfaz totalmente o commit
 [!] Para desfazer o commit, é necessária a hash do commit anterior ao que deseja-se remover
+
+-- Git Hub --
+
+[!!!] Chaves para autorização de entrada e alteração em repositórios:
+https://docs.github.com/pt/authentication/connecting-to-github-with-ssh
+
+> adicionar repositório local ao repositório remoto (github)
+git remote add origin https://github.com/adejuniorr/Git-Course.git
+
+> definindo o branch*
+git branch -M main
+
+> enviando todos os arquivos já existentes
+git push -u origin main
+
+[!] Após alterações e commits no repositório local, atualizar o remoto:
+git push origin main
+
+> para clonar um repositório remoto
+git clone [SSH key] "nome para o novo repositório local"
+
+[*] fork: cópia de repositório não autoral para implementação e contribuição direta
