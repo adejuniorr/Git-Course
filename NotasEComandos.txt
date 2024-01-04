@@ -90,3 +90,29 @@ git push origin main
 git clone [SSH key] "nome para o novo repositório local"
 
 [*] fork: cópia de repositório não autoral para implementação e contribuição direta
+
+[*] branch: ponteiro móvel que leva a um commit
+  > cada commit gera uma hash que referencia uma snapshot do repositório
+  > o branch padrão inicial é o master (ou main) que aponta para o commit mais recente na medida em que são efetuados
+  > novos branches podem ser criados e podem apontar um mesmo commit ou distintos
+  > Vantagens:
+    -> Modificação sem alteração do branch principal (main)
+    -> Branches podem ser criados e apagados facilmente
+    -> Múltiplas pessoas trabalhando em branches distintos
+    -> Evita conflitos
+
+> para criar um novo branch
+git checkout -b nome-do-branch
+
+> para alternar entre branches
+git checkout nome-do-branch
+
+> para deletar um branch
+git branch -D nome-do-branch
+
+> listar branches
+git branch
+
+[!] unindo branches
+  > merge: cria um commit extra para juntar branches distintos. Dessa forma, o merge não é destrutivo, porém, polui o histórico e cria commits novos (mais espaço consumido). Ainda assim, é muito útil para ocasiões onde novos recursos são adicionados a um projeto em desenvolvimento.
+  > rebase: replica o commit ramificado e o faz referenciar ao main, deletando o ramificado depois, mantendo a linearidade. Assim, o rebase evita commits extras e mantem o histório linear. No entanto, é perdida a ordem cronológica dos commits, mais chances de conflito (recomendado o uso do git --pull).
