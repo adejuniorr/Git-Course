@@ -69,6 +69,9 @@ git reset ...
 	   --hard : desfaz totalmente o commit
 [!] Para desfazer o commit, é necessária a hash do commit anterior ao que deseja-se remover
 
+> reverter commit mantendo-o:
+git revert <commit_hash>
+
 -- Git Hub --
 
 [!!!] Chaves para autorização de entrada e alteração em repositórios:
@@ -116,3 +119,33 @@ git branch
 [!] unindo branches
   > merge: cria um commit extra para juntar branches distintos. Dessa forma, o merge não é destrutivo, porém, polui o histórico e cria commits novos (mais espaço consumido). Ainda assim, é muito útil para ocasiões onde novos recursos são adicionados a um projeto em desenvolvimento.
   > rebase: replica o commit ramificado e o faz referenciar ao main, deletando o ramificado depois, mantendo a linearidade. Assim, o rebase evita commits extras e mantem o histório linear. No entanto, é perdida a ordem cronológica dos commits, mais chances de conflito (recomendado o uso do git --pull).
+
+
+[*].gitignore: arquivo que configura outros arquivos a serem ignorados e não publicados no repositório. Ignora os untracked e impede a adição de novos a serem ignorados.
+> Templates de .gitignore prontas: https://github.com/github/gitignore
+
+> Guargando modificações não commitados em uma pasta
+git stash
+
+> Aplicando modificações guardadas
+git stash apply
+
+
+[*] Git alias (atalhos):
+git config --global alias.stt status : configura o atalho 'stt' para chamar 'status'
+git config --global --unset alias.stt : remove o alias 'stt' de 'status'
+
+
+[*] Versionando com tags
+git tag -a 1.0.0 -m 'New Version' : cria uma TAG anotated (-a) com a mensagem/título (-m) 'New Version'
+
+git tag -d <tag_name> : deleta tag local
+
+git push :refs/tags/tag_name : deleta tag remota
+git push origin main :tag_name
+
+git tag : lista as tags existentes
+
+git push origin main --tags : sobe a tag para o repo remoto
+
+Dessa forma, ao adicionar uma nova tag após uma série de alterações e commits, estaremos versionando nosso projeto. E o repositório remoto se encarrega de separar essas versões conforme nossas tags (chegar aba Releases).
