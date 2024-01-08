@@ -7,3 +7,5 @@ Editado novamente.
 Nova mensagem =)
 
 nova edição
+
+Versionamento com tags aprendido
