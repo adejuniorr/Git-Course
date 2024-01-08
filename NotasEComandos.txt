@@ -45,7 +45,7 @@ git add "nomedoarquivo.arq"
 
 [!] Após modificar um arquivo do repositório, ele passará ao estado 3. Então, para levá-lo(s) ao estado 4 onde poderemos realizar o commit e salvar a versão atual, novamente fazemos o "git add" daquele mesmo arquivo e, por fim:
 git commit -m "Mensagem/Comentário sobre o commit" (modified)
-git coommit -am "Mensagem/Comentário sobre o commit" (all modified)
+git commit -am "Mensagem/Comentário sobre o commit" (all modified)
 
 > histórico de alterações (apresentado em pilha):
 git log | shortlog | log -sn | log --graph | show
