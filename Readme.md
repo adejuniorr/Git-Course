@@ -9,3 +9,5 @@ Nova mensagem =)
 nova edição
 
 Versionamento com tags aprendido
+
+Git revert
